@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FunMath</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
+    <style>
+    body, html {height: 100%}
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
+    .menu {display: none}
+    .bgimg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://lh3.googleusercontent.com/pw/ACtC-3d_Gyw44TpfMUYv3an7KAM_GAA4l7euF3owvy2mQ4GuSZxojrlu1INGaaq7VF3Bo7eeOzpVwj6MOg1vAGLf_r5FGMjo55J8VGceLdy2hMsr-HVnM_JYcuAKFvCqrMOpqSrpr3pRhWzJnK_msh-xBK8o=s929-no?authuser=0");
+    min-height: 90%;
+    }
+    </style>
+</head>
+
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top w3-hide-small">
+    <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
+        <a href="#" class="w3-bar-item w3-button">HOME</a>
+        <a href="#calculator" class="w3-bar-item w3-button">CALCULATOR</a>
+        <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+    </div>
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+    <div class="w3-display-bottomleft w3-padding">
+        <span class="w3-tag w3-xlarge">Probability and Statistics by Prof. Linh Tran</span>
+    </div>
+    <div class="w3-display-middle w3-center">
+        <span class="w3-text-blue w3-hide-small" style="font-size:100px; text-shadow: 5px 5px"><br>MATH IS FUN</span>
+        <span class="w3-text-red w3-hide-large w3-hide-medium" style="font-size:60px"><b>MATH IS FUN</b></span>
+        <p><a href="#calculator" class="w3-button w3-xxlarge w3-black">Let me enjoy Math</a></p>
+    </div>
+</header>
+
+<!-- Menu Container -->
+<div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="calculator">
+    <div class="w3-content">
+
+        <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">Calculator</h1>
+        <div class="w3-row w3-center w3-border w3-border-dark-grey">
+            <a href="javascript:void(0)" onclick="openMenu(event, 'Coupon collector');" id="myLink">
+                <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Coupon collector</div>
+            </a>
+            <a href="javascript:void(0)" onclick="openMenu(event, 'Queueing theory');">
+                <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Queueing theory</div>
+            </a>
+            <a href="javascript:void(0)" onclick="openMenu(event, 'Next');">
+                <div class="w3-col s4 tablink w3-padding-large w3-hover-red">What's next?</div>
+            </a>
+        </div>
+
+            <div id="Coupon collector" class="w3-container menu w3-padding-32 w3-white">
+                <h1><b>COUPON COLLECTOR</b> </h1>
+                <h3><b>DESCRIPTION</b></h3>
+                <p class="w3-text-grey">
+                    There are multiple coupons in a collection. A collector has the ability to purchase a coupon, but
+                    can’t choose the coupon he purchases. Instead, the coupon is revealed to be coupon i with
+                    probability pi. Let N be the number of coupons he’ll need to collect before he has at
+                    least one coupon of each type. Let’s call this random variable X. Now, this tool helps you solve
+                    the following questions.
+                </p>
+                <button onclick="cpShowProbs()">View Questions</button>
+                <div id="cp problems" style="display: none;">
+                    <ul>
+                        <li>
+                            What is the expected value of X when the coupons have equal probabilities of being collected?
+                        </li>
+                        <li>
+                            
+                            what is the expected value of X when the coupons have unequal probabilities of being collected?
+                        </li>
+                        <li>
+                            What is the variance of X when the coupons have equal probabilities of being collected?
+                        </li>
+                        <li>
+                            What is the variance of X when the coupons have unequal probabilities of being collected?
+                        </li>
+                        <li>
+                            What is the density function of X (meaning the entire distribution) when the coupons have
+                            equal probabilities?
+                        </li>
+                        <li>
+                            What is the density function of X (meaning the entire distribution) when the coupons have
+                            unequal probabilities?
+                        </li>
+                    </ul>
+                </div>
+               
+                
+                <div>
+                    <h2><b>INPUT SECTION</b></h2>
+                    <form>
+                        <label>Type of problem: </label><br />
+                        <input type="radio" id="type_1" name="coupon probability" value="equal" style="height:25px; width:25px; vertical-align: middle;"checked >
+                        <label>Type 1: Probability of each coupon is equal</label> <br />
+                        <input type="radio" id="type_2" name="coupon probability" value="unequal" style="height:25px; width:25px; vertical-align: middle;" >
+                        <label>Type 2: Probability of each coupons is unequal</label> <br />
+                        <label>Number of types of coupons: 
+                        <h3><i>It must be larger than 0.</i> </h3>
+                        </label>
+                        <input type="number" id="cp_count" min=0>
+                        <br>
+                        <label>Probability of each coupon: </label>
+                        <h3>
+                            <i>Probability must be larger than 0 and less than 1. <br></i>
+                            <i>Type 1:
+                            Enter one input only.
+                            </i> <br>
+                            <i>
+                                Type 2: Enter input for each coupon on each line.
+                            </i>
+                        </h3>
+
+                        <textarea id="cp_prob" cols="24" rows="4"></textarea>
+                        <!-- <input type="text" id="cp_prob"> -->
+                        <br>
+                        <button type="button" onclick="cpSubmitOnClick()">Submit</button>
+
+                    </form>
+
+                </div>
+                <div id="cp_ret">
+                    <h2><b>OUTPUT SECTION</b></h2>
+                    <form>
+                        <label>Expected value of X: </label>
+                        <label id = "cp_expectedV"></label>
+                        <br>
+                        <label>Variance of X: </label>
+                        <label id = "cp_var"></label>
+                        <br>
+                        <p>Distribution density: </p>
+                        <canvas id="cp_dist" width="200" height="200"></canvas>
+                    </form>
+                </div>
+            </div>
+            <div id="Queueing theory" class="w3-container menu w3-padding-32 w3-white">
+                <h1><b>QUEUEING THEORY</b></h1>
+                <div>
+                    <h3><b>DESCRIPTION</b></h3>
+                    <p class="w3-text-grey">
+                        A system (e.g. banks, supermarkets, computers, public transport) has to deal with problems
+                        related to queueing (waiting). The tools helps congestion analysis in the system.
+                        <br />
+                        A typical system involves two subjects (1) servers, (2) customers. It is always assumed that there is
+                        just a single queue (waiting line) and customers move from this single queue to the servers.
+                        <br />
+                        There are different types of queing systems, whose general notation is A/S/c.
+                    </p>
+                    <button onclick="qtShowNotation()">View Notation Details</button> 
+                    <div id="qt notation" style="display: none">
+                        <ul>
+                            <li>A: Arrival process of customers.
+                                <br />
+                                In reality, most arrival process follows Markov (M) model (exponential probability density).
+                            </li>
+                            <li>S: Server process: either
+                                <ul>
+                                    <li>M (Markov): Exponential probability density</li>
+                                    <li>G (General): Any arbitrary probability distribution</li>
+                                </ul>
+                            <li>c: Number of servers</li>
+                        </ul>
+                    </div>
+                   
+                    <p>The tools helps congestion analysis in the system by answers to the following questions.</p>
+                     
+
+                    <button onclick="qtShowProbs()">View Questions</button>
+                    <div id="qt problems" style="display: none">
+                        <ul>
+                            <li>What is the mean customer inter-arrival rate?</li>
+                            <li>What is the mean service rate?</li>
+                            <li>What is the variance of inter-arrival time?</li>
+                            <li>What is the variance of service time?</li>
+                            <li>What is the probability that the server is busy? </li>
+                            <li>What is the mean number of customers in the queue?</li>
+                            <li>What is the mean waiting time in the queue?</li>
+                            <li>What is the mean waiting time in the system</li>
+                            <li>What is the mean number of customers in the system?</li>
+                            <li>What is the probability that the server is idle?</li>
+                        </ul>
+                    </div>
+                    
+                    
+                </div>
+
+                <div>
+                    <h2><b>INPUT SECTION</b></h2>
+                    <form>
+                        <label>Queuing system type: </label> <br>
+                        <input type="radio" id="qt_type_1" name="queue_type" value="M/M/1" checked onclick="qtType1InputShow();" style="height:25px; width:25px; vertical-align: middle;" ></input>
+                        <label>M/M/1</label> <br>
+                        <input type="radio" id="qt_type_2" name="queue_type" value="M/G/1" onclick="qtType2InputShow();" style="height:25px; width:25px; vertical-align: middle;" ></input>
+                        <label>M/G/1</label> <br>
+                        <br>
+                        <label>Mean customer inter-arrival time (minutes): </label>
+                        <h3><i> The value must be larger than 0.</i></h3>
+                        <input type="number" id="mean_arv_time" min=0>
+                        <br>
+                        <div id="qt_type_1_input"style="display: block;">
+                            <label>Mean service time (minutes): </label>
+                            <h3><i> The value must be larger than 0 and less than mean customer inter-arrival time. Or your queue would be infinite.</i></h3>
+                            <input type="number" id="mean_svc_time" min=0>
+                        </div>
+
+                        <div id="qt_type_2_input" style="display: none;">
+                            <label>Minimum service time (minutes): </label>
+                            <h3><i> The value must be larger than 0 and less than mean customer inter-arrival time. Or your queue would be infinite.</i></h3>
+                            <input type="number" id="min_svc_time" min=0>
+                            <br>
+                            <label>Maximum service time (minutes): </label>
+                            <h3><i> The value must be larger than 0 and minimum service time, and less than mean customer inter-arrival time. 
+                                Or your queue would be infinite.</i></h3>
+                            <input type="number" id="max_svc_time" min=0>
+
+                        </div>
+                       
+                        <br>
+                        <br>
+                        <button type="button" id="qt_submit" onclick="qtSubmitOnClick()">Submit</button>
+                    </form>
+
+                </div>
+                <div>
+                    <h2><b>OUTPUT SECTION</b></h2>
+                    <form>
+                        <label>Mean customer arrival rate: </label>
+                        <label id="mean_arv_rate"></label>
+                        <br>
+                        <label>Mean service rate: </label>
+                        <label id="mean_svc_rate"></label>
+                        <br>
+                        <label>Variance of customer arrival time:  </label>
+                        <label id="var_arv"></label>
+                        <br>
+                        <label>Variance of service time: </label>
+                        <label id="var_svc"></label>
+                        <br>
+                        <label>Probability that the server is busy: </label>
+                        <label id="p_svr_busy"></label>
+                        <br>
+                        <label>Mean number of customers in the queue: </label>
+                        <label id="mean_q_cust"></label>
+                        <br>
+                        <label>Mean waiting time in the queue (minutes): </label>
+                        <label id="mean_q_wait"></label>
+                        <br>
+                        <label>Mean number of customers in the system: </label>
+                        <label id="mean_sys_cust"></label>
+                        <br>
+                        <label>Mean waiting time in the system (minutes): </label>
+                        <label id="mean_sys_wait"></label>
+                        <br>
+                        <label>Probability that the server is idle: </label>
+                        <label id="p_svr_idle"></label>
+                    </form>
+                </div>
+            </div>
+            <div id="Next" class="w3-container menu w3-padding-32 w3-white">
+                <h1><b>WHAT'S NEXT?</b></h1>
+                <div>
+                    <p>To be honest, we have not had any plans on what would be the next problems to be solved. If you have any ideas, please let us know.</p>
+                    <p><a href="#about" class="w3-button w3-xxlarge w3-center w3-black">Contact us</a></p>
+                </div>
+            </div>
+        </div>
+
+</div>
+<!-- About Container -->
+<div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge" id="about">
+    <div class="w3-content">
+        <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">About</h1>
+        <p>Math is no longer boring with the support of FunMath. FunMath was born in May, 2021, as a final project in Probability and Statistics course led by <strong>Prof. Linh Tran</strong>.</p>
+        <p><strong>The Team</strong> Nguyen Hoang Nam Anh, Nguyen Thu Huyen, Co2023 at Fulbright University Vietnam.</p>
+<!--        <img src="/w3images/onepage_restaurant.jpg" style="width:100%" class="w3-margin-top w3-margin-bottom" alt="Restaurant">-->
+        <h1><b>CONTRIBUTE</b></h1>
+        <p>FunMath aims to be a helpful tools for students to learn Probability and Statistics! The project is open source and to ensure its continued development and maintenance we need your support. Feel free to reach out us if you want to be a part of FunMath.</p>
+
+        <div class="w3-row">
+            <div class="w3-col s6">
+                <p><strong>Nguyen Hoang Nam Anh</strong></p>
+                <p><strong>Nguyen Thu Huyen</strong></p>
+            </div>
+            <div class="w3-col s6">
+                <p>anh.nguyen.190005@student.fulbright.edu.vn</p>
+                <p>huyen.nguyen.190033@student.fulbright.edu.vn</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <script src="script.js"></script>
+    
+    <script>
+    // Tabbed Menu
+    function openMenu(evt, menuName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("menu");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+        }
+        document.getElementById(menuName).style.display = "block";
+        evt.currentTarget.firstElementChild.className += " w3-red";
+    }
+    document.getElementById("myLink").click();
+    </script>
+    
+</body>
+</html>
