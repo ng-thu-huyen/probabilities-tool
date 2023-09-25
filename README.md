@@ -2,7 +2,7 @@
 
 This is our final project for FUV MATH205 - Introduction to probability and statistics.
 
-It provides a combination of tools for solving famous pronlems such as The Probabilistic Mehod, Coupon Collector Problem.
+It provides a combination of tools for solving famous problems such as The Probabilistic Method, Coupon Collector Problem.
 
 [Check it out!](https://fuv-fun-math.herokuapp.com/)
 
